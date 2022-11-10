@@ -1,0 +1,9 @@
+{
+  "generator-samara-ts-project": {
+    "promptValues": {
+      "author": "kvhnuke",
+      "npm": false,
+      "yarn": true
+    }
+  }
+}
