@@ -185,7 +185,7 @@ onUnmounted(() => {
     width: 100%;
     max-height: 540px;
     margin: 0;
-    padding: 68px 0 0 0 !important;
+    padding: 136px 0 0 0 !important;
     box-sizing: border-box;
     .ps__rail-y {
       right: 3px !important;

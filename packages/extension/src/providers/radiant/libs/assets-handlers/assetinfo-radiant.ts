@@ -40,7 +40,7 @@ export default async (
 
   const networkName = network.name as SupportedNetworkNames;
   const client: WSSElectrumClient = await WSSElectrumClient.Connection(
-    API_ENDPOINT
+    network.node
   );
   const balanceData = await client.getBalance(address, withUnspentCoins);
   const hydrateData = async (

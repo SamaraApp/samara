@@ -1,6 +1,6 @@
 <template>
   <div class="add-network__header" :class="{ border: isScroll }">
-    <h3>Manage networks {{ isScroll }}</h3>
+    <h3>Manage networks  i{{ isScroll }}</h3>
 
     <a class="add-network__close" @click="close()">
       <close-icon />

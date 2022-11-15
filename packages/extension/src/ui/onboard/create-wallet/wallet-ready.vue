@@ -9,7 +9,7 @@
         <a href="https://github.com/SamaraApp" target="_blank">
           <github-icon />
         </a>
-        <a href="https://twitter.com/SamaraWallet" target="_blank">
+        <a href="https://twitter.com/SamaraNetwork" target="_blank">
           <twitter-icon />
         </a>
       </div>

@@ -8,6 +8,7 @@
         <slider-icon />
       </a>
     </div>
+    
     <div v-show="openList" ref="tooltip" class="add-network__search-list">
       <!-- <a
         class="add-network__search-list-item"
@@ -66,7 +67,8 @@ onClickOutside(tooltip, () => {
   &__search {
     width: 100%;
     height: 56px;
-    background: @white;
+    background: #222222;
+   // background: @panelbgmain;
     box-sizing: border-box;
     padding: 8px 0 8px 0;
     display: flex;
@@ -98,7 +100,7 @@ onClickOutside(tooltip, () => {
     &-list {
       width: 256px;
       height: fit-content;
-      background: @white;
+      background: #222222;
       box-shadow: 0px 0.5px 5px rgba(0, 0, 0, 0.039),
         0px 3.75px 11px rgba(0, 0, 0, 0.19);
       border-radius: 12px;

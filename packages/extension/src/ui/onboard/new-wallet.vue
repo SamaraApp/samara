@@ -1,7 +1,7 @@
 <template>
   <div class="new-wallet">
     <logo-big class="new-wallet__logo" />
-    <h3>Web Wallet for Radiant (and more soon!).</h3>
+    <h3>Web Wallet for Crypto</h3>
     <p>
       Samara is a secure non-custodial wallet that gives you easy access the world of crypto.
     </p>

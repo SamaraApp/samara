@@ -14,12 +14,6 @@
         @update:order="updateNetworkOrder"
         @update:network="setNetwork"
       />
-      <div class="app__menu-footer" :class="{ border: networks.length > 9 }">
-        <a class="app__menu-add" @click="addNetworkShow = !addNetworkShow">
-          <manage-networks-icon />
-          Manage networks
-        </a>
-      </div>
     </div>
 
     <div v-if="isOpenMore" ref="dropdown" class="app__menu-dropdown-wrapper">
@@ -33,6 +27,11 @@
       </div>
     </div>
     <div class="app__content">
+      <network-header
+        v-show="showNetworkMenu || showDepositWindow"
+        :network="currentNetwork"
+        @click="addNetworkShow = !addNetworkShow"
+      />
       <accounts-header
         v-show="showNetworkMenu"
         :account-info="accountHeaderData"
@@ -43,6 +42,7 @@
         @toggle:deposit="toggleDepositWindow"
         @toggle:more="toggleMoreMenu"
       />
+      
       <router-view v-slot="{ Component }" name="view">
         <transition :name="transitionName" mode="out-in">
           <component
@@ -62,13 +62,16 @@
         :network="currentNetwork"
       />
     </div>
-
+ 
     <add-network
       v-show="addNetworkShow"
+      :networks="networks"
+      :selected="(route.params.id as string)"
       @close:popup="addNetworkShow = !addNetworkShow"
       @update:active-networks="setActiveNetworks"
+      @update:order="updateNetworkOrder"
+      @update:network="setNetwork"
     />
-
     <settings v-if="settingsShow" @close:popup="settingsShow = !settingsShow" />
   </div>
 </template>
@@ -153,7 +156,11 @@ const setActiveNetworks = async () => {
     if (network !== undefined) networksToShow.push(network);
   });
 
+  console.log("active networks", networksToShow);
+
   networks.value = networksToShow;
+
+  console.log("active networks d", networks);
 
   if (!networks.value.includes(currentNetwork.value)) {
     setNetwork(networks.value[0]);
@@ -211,6 +218,7 @@ onMounted(async () => {
   }
 });
 const setNetwork = async (network: BaseNetwork) => {
+  console.log("setNetwork", setNetwork);
   //hack may be there is a better way. less.modifyVars doesnt work
   if (appMenuRef.value)
     (

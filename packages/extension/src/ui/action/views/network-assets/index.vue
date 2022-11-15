@@ -170,7 +170,7 @@ const addCustomAsset = (asset: AssetsType) => {
     width: 100%;
     max-height: 600px;
     margin: 0;
-    padding: 136px 0 68px 0 !important;
+    padding: 136px 0 174px 0 !important;
     box-sizing: border-box;
 
     &.ps--active-y {

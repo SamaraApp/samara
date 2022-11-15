@@ -59,7 +59,7 @@ const textValue = computed({
 @import "~@action/styles/theme.less";
 
 .app-search {
-  background: transparent;
+  background: #222222;
   border-radius: 10px;
   margin: 17px 0 8px 0;
   height: 40px;

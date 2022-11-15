@@ -23,7 +23,10 @@ const getProviderNetworkByName = (
 const DEFAULT_RVM_NETWORK_NAME = NetworkNames.Radiant;
 const POPULAR_NAMES = [
   NetworkNames.Radiant,
+  NetworkNames.RadiantTestnet,
 ];
+console.log("oppu POPULAR_NAMES", POPULAR_NAMES, NetworkNames.RadiantTestnet)
+console.log("oppuaaa NetworkNames", NetworkNames)
 export {
   getAllNetworks,
   getNetworkByName,

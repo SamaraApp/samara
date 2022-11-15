@@ -16,6 +16,12 @@
         class="account__notification"
       />
 
+      <tooltip text="Open dashboard" class="d-none">
+        <a class="account__actions--copy" target="_blank" v-on:click="openDashboard">
+          <icon-external />
+        </a>
+      </tooltip>
+
       <tooltip text="View on Blockchain Explorer">
         <a class="account__actions--copy" target="_blank" :href="externalLink">
           <icon-external />
@@ -61,6 +67,7 @@ import MoreIcon from "@action/icons/actions/more.vue";
 import { PropType, ref, computed } from "vue";
 import Notification from "@action/components/notification/index.vue";
 import { BaseNetwork } from "@/types/base-network";
+import Browser from "webextension-polyfill";
 
 const isCopied = ref(false);
 
@@ -98,6 +105,14 @@ const showAccounts = () => {
 const externalLink = computed(() => {
   return props.network.blockExplorerAddr.replace("[[address]]", props.address);
 });
+
+const openDashboard = () => {
+  const onboardURL = Browser.runtime.getURL("onboard.html");
+  Browser.tabs.create({
+    url: onboardURL,
+  });
+};
+
 const toggleNotification = () => {
   isCopied.value = !isCopied.value;
 };

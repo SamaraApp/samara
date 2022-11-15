@@ -7,7 +7,7 @@ import wrapActivityHandler from "@/libs/activity-state/wrap-activity-handler";
 
 const ethOptions: RvmNetworkOptions = {
   name: NetworkNames.Radiant,
-  name_long: "Radiant",
+  name_long: "Radiant (RXD)",
   homePage: "https://radiantblockchain.org",
   blockExplorerTX: "https://radiantexplorer.com/tx/[[txHash]]",
   blockExplorerAddr: "https://radiantexplorer.com/address/[[address]]",
@@ -15,7 +15,7 @@ const ethOptions: RvmNetworkOptions = {
   isTestNetwork: false,
   currencyName: "RXD",
   node: "wss://electrumx.radiantblockchain.org:50022",
-  icon: require("./icons/rxd.svg"),
+  icon: require("./icons/rxd.png"),
   gradient: "linear-gradient(180deg, #C549FF 0%, #684CFF 100%)",
   coingeckoID: "radiant",
   coingeckoPlatform: CoingeckoPlatform.Radiant,
