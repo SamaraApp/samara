@@ -3,12 +3,16 @@
     <custom-scrollbar v-if="!!networks" class="app-menu__scroll-area">
       <draggable v-model="searchNetworks" item-key="name" @change="onChange">
         <template #item="{ element }">
-          <app-menu-item
-            :network="element"
-            :is-active="!!selected && element.name === selected"
-            :selected="selected"
-            @click="emit('update:network', element)"
-          />
+          <div class="item-wrapper d-flex justify-content-between">
+            <app-menu-item
+              :network="element"
+              :is-active="!!selected && element.name === selected"
+              @click="emit('update:network', element)"
+            />
+            <div class="settings-wrapper" @click="() => toEditNetworkSettings()">
+              <settings-icon />
+            </div>
+          </div>
         </template>
       </draggable>
     </custom-scrollbar>
@@ -23,6 +27,7 @@ import draggable from "vuedraggable";
 import NetworksState from "@/libs/networks-state";
 import { BaseNetwork } from "@/types/base-network";
 import { computed } from "@vue/reactivity";
+import SettingsIcon from "@action/icons/common/settings-icon.vue";
 
 const props = defineProps({
   networks: {
@@ -37,11 +42,21 @@ const props = defineProps({
     type: Function,
     default: () => ({}),
   },
+  toEditNetworkSettings: {
+    type: Function as PropType<() => void>,
+    default: () => ({}),
+  },
   searchInput: {
     type: String,
     default: "",
   },
 });
+
+function clicked(e) {
+  console.log('e', e);
+  // this.emit('toEditNetworkSettings');
+}
+
 const emit = defineEmits<{
   (e: "update:network", network: BaseNetwork): void;
   (e: "update:order", networks: BaseNetwork[]): void;
@@ -75,6 +90,7 @@ const onChange = (evt: any) => {
       ? props.networks[newIndex - 1].name
       : undefined;
 
+    console.log("order change",props.networks,  element.name, beforeNetworkName);
     networksState.reorderNetwork(element.name, beforeNetworkName);
   }
 };
@@ -102,5 +118,14 @@ const onChange = (evt: any) => {
       right: 4px !important;
     }
   }
+}
+
+.item-wrapper {
+  display: flex;
+  align-items: center;
+}
+.settings-wrapper {
+  margin-top: 7px;
+  cursor: pointer;
 }
 </style>

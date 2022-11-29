@@ -1,45 +1,33 @@
 <template>
   <div class="network-header">
-     network header
+    <network-picker
+      :network="network"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, PropType } from "vue";
-import AccountsHeaderAccount from "./components/header-accounts.vue";
-import AccountsList from "@action/views/accounts/index.vue";
-import Deposit from "@action/views/deposit/index.vue";
+import NetworkPicker from "./components/network-picker.vue";
 import { useRouter } from "vue-router";
-import type { AccountsHeaderData } from "@action/types/account";
 import { BaseNetwork } from "@/types/base-network";
 const router = useRouter();
-defineEmits<{
-  (e: "toggle:deposit"): void;
-}>();
-const showAccounts = ref(false);
+ 
 
 defineProps({
   network: {
     type: Object as PropType<BaseNetwork>,
     default: () => ({}),
   },
-  accountInfo: {
-    type: Object as PropType<AccountsHeaderData>,
-    default: () => ({}),
-  },
-  showDeposit: Boolean,
 });
 
 onMounted(async () => {
   router.beforeEach((to, from, next) => {
-    showAccounts.value = false;
+    //  showAccounts.value = false;
     next();
   });
 });
-
-const toggleAccounts = () => {
-  showAccounts.value = !showAccounts.value;
-};
+ 
 </script>
 
 <style lang="less">
@@ -50,11 +38,14 @@ const toggleAccounts = () => {
   width: 460px;
   height: 56px;
   //left: 340px;
-  top: 0px;
-  background: rgba(255, 255, 255, 0.8);
+  top: 56px;
+  background: #222222;
+  color: #eee;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05), 0px 0px 1px rgba(0, 0, 0, 0.25);
   z-index: 2;
+ 
 }
+
 </style>

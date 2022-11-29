@@ -17,7 +17,9 @@ const getAddressActivity = async (
   address: string,
   endpoint: string
 ): Promise<TransactionHistoryItem[]> => {
-  const client: WSSElectrumClient = await WSSElectrumClient.Connection();
+  const client: WSSElectrumClient = await WSSElectrumClient.Connection(
+    endpoint
+  );
   return client.getAddressHistory(address).then((res) => {
     const results = res as TransactionHistoryItem[];
     const newResults = results.map((tx) => {

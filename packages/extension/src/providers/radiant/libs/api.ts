@@ -54,13 +54,13 @@ class API implements ProviderAPIInterface {
   }
 
   async getBalance(address: string): Promise<string> {
-    const client: WSSElectrumClient = await WSSElectrumClient.Connection(url);
+    const client: WSSElectrumClient = await WSSElectrumClient.Connection(this.node);
     const allBalances = await client.getBalance(address);
     return allBalances.balance;
   }
 
   async getUnspentCoins(address: string): Promise<any[]> {
-    const client: WSSElectrumClient = await WSSElectrumClient.Connection(url);
+    const client: WSSElectrumClient = await WSSElectrumClient.Connection(this.node);
     const coins = await client.getUnspentCoins(address);
     return coins;
   }

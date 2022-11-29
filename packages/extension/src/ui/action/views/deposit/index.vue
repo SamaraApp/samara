@@ -101,7 +101,7 @@ const toggleNotification = () => {
   // left: -340px;
   top: 0px;
   position: fixed;
-  z-index: 105;
+  z-index: 205;
   display: none;
   box-sizing: border-box;
   justify-content: center;

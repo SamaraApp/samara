@@ -3,9 +3,14 @@
     <img :src="network.icon" alt="" />
     <span>{{ network.name_long }}</span>
 
-    <div class="app-menu__link-drag">
-      <drag-icon />
+    <div v-if="isActive" class="app-menu__link-active-check">
+      <done-icon />
     </div>
+
+    <div v-if="isActive" class="app-menu__link-edit d-none">
+      <settings-icon />
+    </div>
+
   </a>
 </template>
 
@@ -13,6 +18,9 @@
 import { NodeType } from "@/types/provider";
 import { PropType } from "vue";
 import DragIcon from "@action/icons/common/drag-icon.vue";
+import CheckIcon from "@action/icons/common/check-icon.vue";
+import DoneIcon from "@action/icons/common/done_icon.vue";
+import SettingsIcon from "@action/icons/common/settings-icon.vue";
 
 defineProps({
   network: {
@@ -26,7 +34,7 @@ defineProps({
     default: () => {
       return false;
     },
-  },
+  } 
 });
 </script>
 
@@ -88,6 +96,20 @@ defineProps({
       margin-top: -12px;
       cursor: grab;
       display: none;
+    }
+    &-active-check {
+      position: absolute;
+      right: 40px;
+      padding: 4px;
+      top: 50%;
+      margin-top: -12px;
+    }
+    &-edit {
+      position: absolute;
+      right: 8px;
+      padding: 4px;
+      top: 50%;
+      margin-top: -12px;
     }
   }
 }

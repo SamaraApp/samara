@@ -5,7 +5,6 @@ import { ActivityLite } from "@/types/activity";
 import { UTXO } from "@/types/base-token";
 import { reject } from "lodash";
 import * as rpcws from "rpc-websockets";
-const defaultUrl = "wss://electrumx.radiantblockchain.org:50022/";
 const WebSocket = rpcws.Client;
 
 export class WSSElectrumClient {
@@ -151,7 +150,7 @@ export class WSSElectrumClient {
         }
     }
 
-    public static Connection(url: string = defaultUrl): WSSElectrumClient {
+    public static Connection(url: string): WSSElectrumClient {
         if (!this._instances || !this._instances[url]) {
             this._instances[url] = new this(url);
         }

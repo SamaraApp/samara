@@ -13,6 +13,8 @@ class NetworksState {
   private async setInitialActiveNetworks(): Promise<void> {
     const networks: NetworkStorageElement[] = getAllNetworks().map(
       ({ name }) => {
+
+        console.log("setInitialActiveNetworks", networks)
         if (POPULAR_NAMES.includes(name)) {
           return { name, isActive: true };
         } else {
@@ -81,6 +83,7 @@ class NetworksState {
       StorageKeys.networkInfo
     );
     if (state && state.networks) {
+      console.log("state.networks", state.networks);
       return state.networks
         .filter((network) => network.isActive)
         .sort((a, b) => {

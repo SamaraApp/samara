@@ -106,7 +106,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Twitter - [@SamaraWallet](https://twitter.com/SamaraWallet)
+Twitter - [@SamaraNetwork](https://twitter.com/SamaraNetwork)
 
 Homepage - [https://samara.app/](https://samara.app/)
 

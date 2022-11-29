@@ -27,7 +27,7 @@
 
     <div class="settings__copyright">
       <p>Version {{ version }}</p>
-      <p>© 2022 Samara Developers</p>
+      <p>© 2022 The Samara Developers</p>
     </div>
 
     <modal-sign
@@ -65,7 +65,7 @@ defineEmits<{
  
 const privacyAction = () => {
   window.open(
-    "https://samara.app/privacy-policy",
+    "https://samara.app/privacy.html",
     "_blank",
     "noopener"
   );
@@ -97,7 +97,7 @@ const toggleForgot = () => {
       font-size: 12px;
       line-height: 16px;
       letter-spacing: 0.5px;
-      color: @tertiaryLabel;
+      color: #eee;
       margin: 0;
     }
   }

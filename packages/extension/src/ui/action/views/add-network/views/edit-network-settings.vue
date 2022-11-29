@@ -4,7 +4,7 @@
       class="add-network__header"
       :class="{ border: isHasScroll() && scrollProgress > 0 }"
     >
-      <h3>Manage networks</h3>
+      <h3>Edit Network Settings</h3>
       <a class="add-network__close" @click="close">
         <close-icon />
       </a>
@@ -20,7 +20,6 @@
         :networks="networks"
         :selected="(route.params.id as string)"
         :search-input="searchInput"
-        :toEditNetworkSettings="() => toEditNetworkSettings()"
         @update:order="(e) => emit('update:order', e)"
         @update:network="(e) => emit('update:network', e)"
       />
@@ -49,14 +48,12 @@ interface NodeTypesWithActive extends NodeType {
   isActive: boolean;
 }
  
-
 const emit = defineEmits<{
   (e: "activeNetworks"): void;
   (e: "update:network", network: BaseNetwork): void;
   (e: "update:order", networks: BaseNetwork[]): void;
 }>();
  
-
 const networksState = new NetworksState();
 const searchInput = ref("");
 const all = ref<Array<NodeTypesWithActive>>([]);
@@ -77,10 +74,6 @@ defineProps({
     default: () => ({}),
   },
   toCustom: {
-    type: Function as PropType<() => void>,
-    default: () => ({}),
-  },
-  toEditNetworkSettings: {
     type: Function as PropType<() => void>,
     default: () => ({}),
   },
