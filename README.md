@@ -9,7 +9,7 @@
   <p align="center">
     Your gateway to the Crypto Universe.
     <br />
-    <a href="https://chrome.google.com/webstore/detail/chrome-link-here">
+    <a href="https://chrome.google.com/webstore/detail/samara-web-wallet-for-cry/fcjkomdnccnlklmhncgmaehaakjkddnk">
       <strong>Download for Chrome/Brave (Coming soon) »</strong>
     </a>
     <br />
